@@ -1,0 +1,33 @@
+<h2>Get status of payment</h2>
+<form (ngSubmit)="submit()" [formGroup]="paymentIdForm">
+
+  <p>
+    <label>Select payment ID:</label>
+    <select formControlName="paymentId">
+      <option [ngValue]="null" disabled>Select</option>
+      <option *ngFor="let client of clients" [ngValue]="client.paymentId">{{client.paymentId}}</option>
+    </select>
+
+    <button type="submit">Submit</button>
+  </p>
+
+</form>
+<button (click)="get()">Get</button>
+
+
+<table>
+  <tr>
+    <th>From</th>
+    <th>To</th>
+    <th>Departure Time</th>
+    <th>Price</th>
+    <th>Payment Status</th>
+  </tr>
+  <option *ngFor="let client of clients">
+    <tr>
+      <td>{{client.id}}</td>
+      <td>{{client.fullName}}</td>
+      <td>{{client.paymentId}}</td>
+    </tr>
+  </option>
+</table>

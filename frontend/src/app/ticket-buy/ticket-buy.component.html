@@ -1,0 +1,20 @@
+<h2>Ticket Buy</h2>
+<p>
+  <label>Full Name:</label>
+  <input [(ngModel)]="fullName">
+</p>
+<form [formGroup]="flightIdForm" (ngSubmit)="submitTicket()">
+
+  <p>
+    <label>Select Flight Id</label>
+    <select formControlName="flightId">
+      <option [ngValue]="null" disabled>Select</option>
+      <option *ngFor="let ticket of tickets" [ngValue]="ticket.flightId">{{ticket.flightId}}</option>
+    </select>
+
+    <button type="submit">Submit</button>
+  </p>
+
+</form>
+<button (click)="buy()">Buy</button>
+

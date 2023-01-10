@@ -1,0 +1,30 @@
+<h2>Ticket Info</h2>
+<form (ngSubmit)="submit()" [formGroup]="ticketIdForm">
+
+  <p>
+    <label>Select Ticket ID: </label>
+    <select formControlName="ticket">
+      <option [ngValue]="null" disabled>Select</option>
+      <option *ngFor="let ticket of tickets" [ngValue]="ticket.id">{{ticket.ticketId}}</option>
+    </select>
+
+    <button type="submit">Submit</button>
+  </p>
+</form>
+
+<table>
+  <tr>
+    <th>From</th>
+    <th>To</th>
+    <th>Departure Time</th>
+    <th>Price</th>
+    <th>Payment Status</th>
+  </tr>
+  <tr>
+    <td>{{ticket.from}}</td>
+    <td>{{ticket.to}}</td>
+    <td>{{ticket.departureTime}}</td>
+    <td>{{ticket.price}}</td>
+    <td>{{ticket.status}}</td>
+  </tr>
+</table>
